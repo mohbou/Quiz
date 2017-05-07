@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TestingCenter</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="new_test_button">New Test</string>
+</resources>
