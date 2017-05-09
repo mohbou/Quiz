@@ -1,4 +1,4 @@
-package com.quizappexam.app.testingcenter.presentation;
+package com.quizappexam.app.testingcenter.presentation.features.playQuiz;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

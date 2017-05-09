@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import com.quizappexam.app.testingcenter.R2;
 import com.quizappexam.app.testingcenter.R;
+import com.quizappexam.app.testingcenter.presentation.features.playQuiz.QuizActivity;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
