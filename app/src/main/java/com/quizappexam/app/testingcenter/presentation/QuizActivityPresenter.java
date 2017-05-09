@@ -2,7 +2,7 @@ package com.quizappexam.app.testingcenter.presentation;
 
 import com.quizappexam.app.testingcenter.domain.QuizUseCase;
 import com.quizappexam.app.testingcenter.models.Question;
-import com.quizappexam.app.testingcenter.presentation.QuizActivityView;
+
 
 import java.util.List;
 

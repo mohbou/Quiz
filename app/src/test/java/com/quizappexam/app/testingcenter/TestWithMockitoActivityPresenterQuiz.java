@@ -21,13 +21,17 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class TestWithMockitoActivityPresenterQuiz {
 
-    private static final List<Question> EMPTY_LIST =Collections.emptyList();
+
+
     @Mock
     QuizUseCase quizUseCase;
 
     @Mock
     QuizActivityView view;
+
+    private static final List<Question> EMPTY_LIST =Collections.emptyList();
     private final List<Question> MANY_BOOKS= Arrays.asList(new Question(), new Question(), new Question());
+
     private QuizActivityPresenter presenter;
 
 

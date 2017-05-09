@@ -16,7 +16,9 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+
         mQuizActivityPresenter = new QuizActivityPresenter(this, null);
+        mQuizActivityPresenter.loadQuestions();
 
 
     }
