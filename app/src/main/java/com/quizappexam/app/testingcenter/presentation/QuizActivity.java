@@ -1,7 +1,10 @@
-package com.quizappexam.app.testingcenter;
+package com.quizappexam.app.testingcenter.presentation;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.quizappexam.app.testingcenter.R;
+import com.quizappexam.app.testingcenter.models.Question;
 
 import java.util.List;
 

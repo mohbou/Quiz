@@ -1,6 +1,11 @@
 package com.quizappexam.app.testingcenter;
 
 
+import com.quizappexam.app.testingcenter.domain.QuizUseCase;
+import com.quizappexam.app.testingcenter.models.Question;
+import com.quizappexam.app.testingcenter.presentation.QuizActivityPresenter;
+import com.quizappexam.app.testingcenter.presentation.QuizActivityView;
+
 import org.junit.Test;
 
 import java.util.Arrays;
