@@ -9,6 +9,13 @@ import java.util.List;
 public class QuizActivityPresenter {
     private QuizActivityView mView;
     private QuizUseCase mQuizUseCase;
+    private List<Question> mQuestions;
+
+    public int getCurrentQuestionIndex() {
+        return currentQuestionIndex;
+    }
+
+    private int currentQuestionIndex;
 
     public QuizActivityPresenter(QuizActivityView view, QuizUseCase quizUseCase) {
         mView = view;
@@ -16,11 +23,16 @@ public class QuizActivityPresenter {
     }
 
     public void loadQuestions() {
-        List<Question> questions = mQuizUseCase.getQuestions();
+        mQuestions = mQuizUseCase.getQuestions();
 
-        if (!questions.isEmpty())
-            mView.displayQuestion(questions);
+        if (!mQuestions.isEmpty())
+            mView.displayQuestion(mQuestions);
         else
             mView.displayNoQuestions();
+    }
+
+    public void loadQuestion() {
+
+       mView.displayNextQuestion(mQuestions.get(++currentQuestionIndex));
     }
 }

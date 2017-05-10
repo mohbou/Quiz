@@ -8,4 +8,8 @@ import java.util.List;
 public interface QuizActivityView {
     public void displayQuestion(List<Question> questionList);
     public void displayNoQuestions();
+    public void displayNextQuestion(Question question);
+
+
+
 }

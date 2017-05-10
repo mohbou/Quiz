@@ -63,6 +63,11 @@ public class TestActivityPresenterQuiz {
         public void displayNoQuestions() {
             noQuestions = true;
         }
+
+        @Override
+        public void displayNextQuestion(Question question) {
+
+        }
     }
 
 

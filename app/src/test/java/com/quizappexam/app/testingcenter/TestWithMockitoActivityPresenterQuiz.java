@@ -71,5 +71,14 @@ public class TestWithMockitoActivityPresenterQuiz {
 
     }
 
+    @Test
+    public void shouldPassQuestionWhenUserRequestNextQuestion() {
+        //when(view.getCurrentQuestionIndex()).thenReturn(1);
+
+         presenter.loadQuestion();
+
+        verify(view).displayNextQuestion(new Question());
+    }
+
 
 }
