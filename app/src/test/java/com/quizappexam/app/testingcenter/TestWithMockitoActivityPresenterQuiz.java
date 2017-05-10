@@ -7,6 +7,7 @@ import com.quizappexam.app.testingcenter.presentation.features.playQuiz.QuizActi
 import com.quizappexam.app.testingcenter.presentation.features.playQuiz.QuizActivityView;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -71,6 +72,7 @@ public class TestWithMockitoActivityPresenterQuiz {
 
     }
 
+@Ignore
     @Test
     public void shouldPassQuestionWhenUserRequestNextQuestion() {
         //when(view.getCurrentQuestionIndex()).thenReturn(1);
