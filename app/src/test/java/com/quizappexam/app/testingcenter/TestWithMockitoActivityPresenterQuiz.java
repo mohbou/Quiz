@@ -30,7 +30,7 @@ public class TestWithMockitoActivityPresenterQuiz {
     QuizActivityView view;
 
     private static final List<Question> EMPTY_LIST =Collections.emptyList();
-    private final List<Question> MANY_BOOKS= Arrays.asList(new Question(), new Question(), new Question());
+    private final List<Question> mQuestionList = Arrays.asList(new Question(), new Question(), new Question());
 
     private QuizActivityPresenter presenter;
 
@@ -44,13 +44,13 @@ public class TestWithMockitoActivityPresenterQuiz {
     public void shouldPassAllQuestions() {
 
         //given
-        when(quizUseCase.getQuestions()).thenReturn(MANY_BOOKS);
+        when(quizUseCase.getQuestions()).thenReturn(mQuestionList);
 
         //when
         presenter.loadQuestions();
 
         // then
-        verify(view).displayQuestion(MANY_BOOKS);
+        verify(view).displayQuestion(mQuestionList);
 
     }
 

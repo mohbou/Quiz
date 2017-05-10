@@ -29,7 +29,7 @@ public class TestActivityPresenterQuiz {
         presenter.loadQuestions();
 
         // then
-        assertEquals(true,((MockView)view).passedBooks);
+        assertEquals(true,((MockView)view).passedQuestions);
 
     }
 
@@ -45,23 +45,23 @@ public class TestActivityPresenterQuiz {
         presenter.loadQuestions();
 
         //then
-        assertEquals(true,((MockView)view).noBooks);
+        assertEquals(true,((MockView)view).noQuestions);
 
 
     }
 
     private class MockView implements QuizActivityView {
-        private boolean passedBooks;
-        private  boolean noBooks;
+        private boolean passedQuestions;
+        private  boolean noQuestions;
 
         @Override
         public void displayQuestion(List<Question> questionList) {
-            if (questionList.size()==3) passedBooks=true;
+            if (questionList.size()==3) passedQuestions =true;
         }
 
         @Override
         public void displayNoQuestions() {
-            noBooks = true;
+            noQuestions = true;
         }
     }
 
