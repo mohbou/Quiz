@@ -64,7 +64,7 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
 
     }
 
-     class AnswerHolder extends RecyclerView.ViewHolder {
+     class AnswerHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
 
         private Answer answer;
      //   @Nullable
@@ -79,7 +79,7 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
             super(inflater.inflate(R.layout.list_item_answer,parent,false));
             checkBoxAnswer = (CheckBox) itemView.findViewById(R.id.checkBoxAnswerId);
             answerStatement = (TextView) itemView.findViewById(R.id.answerStatementId);
-
+            answerStatement.setOnClickListener(this);
 
 
         }
@@ -92,7 +92,12 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
             answerStatement.setText(answer.getStatement());
 
         }
-    }
+
+         @Override
+         public void onClick(View view) {
+             checkBoxAnswer.setChecked(!checkBoxAnswer.isChecked());
+         }
+     }
 
     class AnswerAdapter extends RecyclerView.Adapter<AnswerHolder> {
 
@@ -111,7 +116,6 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
         @Override
         public void onBindViewHolder(AnswerHolder holder, int position) {
             Answer answer = answers.get(position);
-            Log.d("ANSWERS", String.valueOf(answers.size()));
             holder.bind(answer);
         }
 
