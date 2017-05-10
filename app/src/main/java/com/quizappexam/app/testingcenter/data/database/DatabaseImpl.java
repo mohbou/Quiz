@@ -13,16 +13,21 @@ import java.util.List;
 public class DatabaseImpl implements Database {
     @Override
     public List<Question> getQuestions() {
-        Question q1 = new Question();
-       List<Answer> answers = new ArrayList<>();
 
-        for (int i = 0; i < 4; i++) {
-            Answer a1 =  new Answer();
-            a1.setStatement("This is the "+i+" fake answer for now");
-            answers.add(a1);
+        List<Question> questions= new ArrayList<>();
+        for (int j = 0; j < 20; j++) {
+
+            Question q1 = new Question();
+            List<Answer> answers = new ArrayList<>();
+
+            for (int i = 0; i < 4; i++) {
+                Answer a1 = new Answer();
+                a1.setStatement("This is the " + i + " fake answer for now");
+                answers.add(a1);
+            }
+            q1.setAnswers(answers);
+            questions.add(q1);
         }
-        q1.setAnswers(answers);
-
-        return Arrays.asList(q1);
+        return questions;
     }
 }

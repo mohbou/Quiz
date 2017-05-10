@@ -6,7 +6,6 @@ import android.os.Bundle;
 
 
 import com.quizappexam.app.testingcenter.R;
-import com.quizappexam.app.testingcenter.R2;
 import com.quizappexam.app.testingcenter.presentation.features.playQuiz.QuizActivity;
 
 import butterknife.ButterKnife;
@@ -21,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-   @OnClick(R2.id.button_new_test)
+   @OnClick(R.id.button_new_test)
     public void onClickButtonNewTest() {
         Intent intent = new Intent(MainActivity.this,QuizActivity.class);
         startActivity(intent);
