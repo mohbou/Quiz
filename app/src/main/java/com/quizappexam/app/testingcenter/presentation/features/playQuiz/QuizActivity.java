@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
+
 
 import com.quizappexam.app.testingcenter.R;
 
@@ -14,6 +16,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class QuizActivity extends AppCompatActivity implements QuizActivityView {
 
@@ -24,6 +27,8 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
     @BindView(R.id.recyclerViewAnswersID)
     RecyclerView answerRecyclerView;
 
+    @BindView(R.id.questionStatement)
+    TextView questionStatement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,7 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
     public void displayQuestion(List<Question> questionList) {
         this.mQuestionList = questionList;
         answerRecyclerView.setLayoutManager(new LinearLayoutManager(QuizActivity.this));
+        questionStatement.setText(mQuestionList.get(0).getStatement());
         anwerAdapter = new AnswerAdapter(mQuestionList.get(0).getAnswers());
         answerRecyclerView.setAdapter(anwerAdapter);
 
@@ -53,6 +59,13 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
     @Override
     public void displayNextQuestion(Question question) {
 
+
+    }
+
+    @OnClick(R.id.nextQuestionBtn)
+    public void onClickNextQuestion() {
+
+      //  mQuizActivityPresenter.loadQuestion();
     }
 
 }

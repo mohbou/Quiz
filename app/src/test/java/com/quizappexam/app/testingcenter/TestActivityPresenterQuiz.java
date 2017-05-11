@@ -85,6 +85,11 @@ public class TestActivityPresenterQuiz {
             else
             return Collections.emptyList();
         }
+
+        @Override
+        public Question getQuestion(int index) {
+            return null;
+        }
     }
 
 

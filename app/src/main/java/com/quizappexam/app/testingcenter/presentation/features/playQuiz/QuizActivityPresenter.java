@@ -32,7 +32,7 @@ public class QuizActivityPresenter {
     }
 
     public void loadQuestion() {
-
-       mView.displayNextQuestion(mQuestions.get(++currentQuestionIndex));
+        Question question = mQuizUseCase.getQuestion(++currentQuestionIndex);
+        mView.displayNextQuestion(question);
     }
 }

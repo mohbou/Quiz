@@ -7,4 +7,5 @@ import java.util.List;
 public interface QuizUseCase {
 
     public List<Question> getQuestions();
+    public Question getQuestion(int index);
 }

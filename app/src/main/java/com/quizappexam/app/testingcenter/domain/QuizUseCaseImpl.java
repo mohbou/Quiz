@@ -10,6 +10,7 @@ import java.util.List;
 public class QuizUseCaseImpl implements QuizUseCase {
 
     private QuestionsRepository mQuestionsRepository;
+    private List<Question> mQuestionList= new ArrayList<>();
 
     public QuizUseCaseImpl() {
         mQuestionsRepository = new QuestionRepositoryImpl();
@@ -17,6 +18,15 @@ public class QuizUseCaseImpl implements QuizUseCase {
 
     @Override
     public List<Question> getQuestions() {
-        return mQuestionsRepository.getQuestions();
+
+        if(mQuestionList.isEmpty()) {
+            mQuestionList=mQuestionsRepository.getQuestions();
+        }
+        return mQuestionList;
+    }
+
+    @Override
+    public Question getQuestion(int index) {
+        return  getQuestions().get(index);
     }
 }

@@ -26,6 +26,8 @@ public class DatabaseImpl implements Database {
                 answers.add(a1);
             }
             q1.setAnswers(answers);
+            q1.setStatement("This is the " + j + " fake question for now");
+
             questions.add(q1);
         }
         return questions;
