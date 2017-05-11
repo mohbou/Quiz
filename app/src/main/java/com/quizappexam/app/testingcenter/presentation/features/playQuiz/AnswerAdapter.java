@@ -32,4 +32,10 @@ public class  AnswerAdapter extends RecyclerView.Adapter<AnswerHolder> {
     public int getItemCount() {
         return answers.size();
     }
+
+    public void updateQuestion(List<Answer> answers) {
+        this.answers =answers;
+        notifyDataSetChanged();
+
+    }
 }
