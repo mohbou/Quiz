@@ -11,7 +11,7 @@ public class QuestionRepositoryImpl implements QuestionsRepository {
     Database database;
 
     public QuestionRepositoryImpl() {
-        database = new DatabaseImpl();
+        database = DatabaseImpl.getInstance();
     }
 
     @Override

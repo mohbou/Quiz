@@ -1,10 +1,29 @@
 package com.quizappexam.app.testingcenter.models;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 import java.util.List;
 
+@DatabaseTable(tableName = "question")
 public class Question {
-   private List<Answer> mAnswers;
+    @DatabaseField(id = true)
+    private int questionId;
+    @DatabaseField
+    private List<Answer> mAnswers;
+    @DatabaseField
     private String statement;
+
+    public Question() {
+    }
+
+    public int getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
+    }
 
     public String getStatement() {
         return statement;

@@ -4,13 +4,24 @@ import com.quizappexam.app.testingcenter.models.Answer;
 import com.quizappexam.app.testingcenter.models.Question;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
 //just a stub for now
 
 public class DatabaseImpl implements Database {
+
+    private static Database mDatabase;
+
+    private DatabaseImpl() {
+
+    }
+
+    public static Database getInstance() {
+        if(mDatabase ==null)
+            mDatabase = new DatabaseImpl();
+        return mDatabase;
+    }
     @Override
     public List<Question> getQuestions() {
 
