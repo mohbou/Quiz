@@ -1,4 +1,4 @@
-package com.quizappexam.app.testingcenter.presentation;
+package com.quizappexam.app.testingcenter.presentation.features.home;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
