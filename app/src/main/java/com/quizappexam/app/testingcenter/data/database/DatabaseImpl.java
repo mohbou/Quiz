@@ -2,6 +2,7 @@ package com.quizappexam.app.testingcenter.data.database;
 
 import android.content.Context;
 
+import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.quizappexam.app.testingcenter.models.Answer;
 import com.quizappexam.app.testingcenter.models.Question;
 
@@ -14,14 +15,25 @@ import java.util.List;
 public class DatabaseImpl implements Database {
 
     private static Database mDatabase;
+    private DatabaseHelper databaseHelper;
+    private static Context mContext;
+
+    private DatabaseHelper getHelper() {
+        if (databaseHelper == null) {
+            databaseHelper = OpenHelperManager.getHelper(mContext,DatabaseHelper.class);
+        }
+        return databaseHelper;
+    }
 
     private DatabaseImpl() {
-
+        getHelper();
     }
 
     public static Database getInstance(Context context) {
-        if(mDatabase ==null)
+        if(mDatabase ==null) {
             mDatabase = new DatabaseImpl();
+            mContext = context;
+        }
         return mDatabase;
     }
     @Override
