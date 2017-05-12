@@ -68,8 +68,6 @@ public class TestWithMockitoActivityPresenterQuiz {
 
         //then
         verify(view).displayNoQuestions();
-
-
     }
 
     @Test

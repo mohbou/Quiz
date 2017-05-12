@@ -31,7 +31,7 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
         setContentView(R.layout.activity_test);
         ButterKnife.bind(this);
 
-        mQuizActivityPresenter = new QuizActivityPresenter(this, new QuizUseCaseImpl());
+        mQuizActivityPresenter = new QuizActivityPresenter(this, new QuizUseCaseImpl(getApplication()));
         mQuizActivityPresenter.loadQuestions();
 
     }

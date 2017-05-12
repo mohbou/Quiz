@@ -1,5 +1,7 @@
 package com.quizappexam.app.testingcenter.data.database;
 
+import android.content.Context;
+
 import com.quizappexam.app.testingcenter.models.Answer;
 import com.quizappexam.app.testingcenter.models.Question;
 
@@ -17,7 +19,7 @@ public class DatabaseImpl implements Database {
 
     }
 
-    public static Database getInstance() {
+    public static Database getInstance(Context context) {
         if(mDatabase ==null)
             mDatabase = new DatabaseImpl();
         return mDatabase;

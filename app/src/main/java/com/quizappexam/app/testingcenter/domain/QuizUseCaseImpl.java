@@ -1,5 +1,7 @@
 package com.quizappexam.app.testingcenter.domain;
 
+import android.content.Context;
+
 import com.quizappexam.app.testingcenter.data.QuestionRepositoryImpl;
 import com.quizappexam.app.testingcenter.data.QuestionsRepository;
 import com.quizappexam.app.testingcenter.models.Question;
@@ -12,8 +14,8 @@ public class QuizUseCaseImpl implements QuizUseCase {
     private QuestionsRepository mQuestionsRepository;
     private List<Question> mQuestionList= new ArrayList<>();
 
-    public QuizUseCaseImpl() {
-        mQuestionsRepository = new QuestionRepositoryImpl();
+    public QuizUseCaseImpl(Context context) {
+        mQuestionsRepository = new QuestionRepositoryImpl(context);
     }
 
     @Override
