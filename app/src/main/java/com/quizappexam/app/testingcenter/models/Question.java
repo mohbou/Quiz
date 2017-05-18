@@ -5,15 +5,12 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @DatabaseTable(tableName = "question")
 public class Question {
-    @DatabaseField(id = true)
+
+    @DatabaseField(generatedId = true)
     private int questionId;
-    @DatabaseField
-    private List<Answer> mAnswers;
+
     @DatabaseField
     private String statement;
 
@@ -39,16 +36,6 @@ public class Question {
         this.statement = statement;
     }
 
-    public List<Answer> getAnswers() {
-        if(mAnswers==null) {
-            mAnswers =new ArrayList<>(mAnswerCollection);
-        }
-        return mAnswers;
-    }
-
-    public void setAnswers(List<Answer> answers) {
-        mAnswers = answers;
-    }
 
     public ForeignCollection<Answer> getAnswerCollection() {
         return mAnswerCollection;

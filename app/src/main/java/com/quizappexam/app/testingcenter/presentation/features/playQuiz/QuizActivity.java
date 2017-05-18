@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
+
+import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.quizappexam.app.testingcenter.R;
 import com.quizappexam.app.testingcenter.domain.QuizUseCaseImpl;
 import com.quizappexam.app.testingcenter.models.Answer;
@@ -67,4 +69,10 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
         mQuizActivityPresenter.loadQuestion();
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        OpenHelperManager.releaseHelper();
+    }
 }

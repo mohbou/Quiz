@@ -1,6 +1,7 @@
 package com.quizappexam.app.testingcenter.data.database;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
@@ -19,6 +20,8 @@ public class DatabaseImpl implements Database {
     private static Database mDatabase;
     private DatabaseHelper databaseHelper;
     private static Context mContext;
+    private Dao<Question, Integer> mQuestionDao;
+    private Dao<Answer, Integer> mAnswerDao ;
 
     private DatabaseHelper getHelper() {
         if (databaseHelper == null) {
@@ -33,37 +36,42 @@ public class DatabaseImpl implements Database {
 
     public static Database getInstance(Context context) {
         if(mDatabase ==null) {
-            mDatabase = new DatabaseImpl();
             mContext = context;
+            mDatabase = new DatabaseImpl();
+
         }
         return mDatabase;
     }
     @Override
     public List<Question> getQuestions()  {
 
-        List<Question> questions= null;
+        List<Question> questions1= new ArrayList<>();
         try {
-            Dao<Question, Integer> questionDao = getHelper().getQuestionDao();
-            questions = questionDao.queryForAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        /*= new ArrayList<>();
-        for (int j = 0; j < 20; j++) {
+            mQuestionDao = getHelper().getQuestionRuntimeDao();
+            mAnswerDao = getHelper().getAnswerRuntimeCollectionDao();
 
+
+
+      /* run 1 time just to fill up the database
+      for (int j = 0; j < 20; j++) {
+           Log.d("jjj", String.valueOf(j));
             Question q1 = new Question();
-            List<Answer> answers = new ArrayList<>();
+            q1.setStatement("This is the " + j + " fake question for now");
+            mQuestionDao.create(q1);
 
             for (int i = 0; i < 4; i++) {
                 Answer a1 = new Answer();
                 a1.setStatement("This is the " + i + " fake answer for now for Q "+j);
-                answers.add(a1);
+                a1.setCorrect(true);
+                a1.setQuestion(q1);
+                mAnswerDao.create(a1);
             }
-            q1.setAnswers(answers);
-            q1.setStatement("This is the " + j + " fake question for now");
-
-            questions.add(q1);
         }*/
-        return questions;
+          questions1 = mQuestionDao.queryForAll();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return questions1;
     }
 }

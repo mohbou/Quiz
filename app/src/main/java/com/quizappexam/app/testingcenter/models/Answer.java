@@ -6,10 +6,12 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "answer")
 public class Answer {
 
-    @DatabaseField(id=true)
+    @DatabaseField(generatedId = true)
     private int answerId;
+
     @DatabaseField
     private String statement;
+
     @DatabaseField
     private boolean correct;
 
