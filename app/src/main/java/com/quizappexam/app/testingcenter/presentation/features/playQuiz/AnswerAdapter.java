@@ -51,4 +51,8 @@ public class  AnswerAdapter extends RecyclerView.Adapter<AnswerHolder> {
         notifyDataSetChanged();
 
     }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
 }

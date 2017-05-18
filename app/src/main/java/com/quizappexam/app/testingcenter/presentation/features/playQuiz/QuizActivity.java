@@ -69,6 +69,7 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
 
     @OnClick(R.id.nextQuestionBtn)
     public void onClickNextQuestion() {
+        List<Answer> answers = answerAdapter.getAnswers();
         mQuizActivityPresenter.loadQuestion();
 
     }
