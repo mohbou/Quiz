@@ -3,9 +3,11 @@ package com.quizappexam.app.testingcenter.data.database;
 import android.content.Context;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.dao.Dao;
 import com.quizappexam.app.testingcenter.models.Answer;
 import com.quizappexam.app.testingcenter.models.Question;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,9 +39,16 @@ public class DatabaseImpl implements Database {
         return mDatabase;
     }
     @Override
-    public List<Question> getQuestions() {
+    public List<Question> getQuestions()  {
 
-        List<Question> questions= new ArrayList<>();
+        List<Question> questions= null;
+        try {
+            Dao<Question, Integer> questionDao = getHelper().getQuestionDao();
+            questions = questionDao.queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        /*= new ArrayList<>();
         for (int j = 0; j < 20; j++) {
 
             Question q1 = new Question();
@@ -54,7 +63,7 @@ public class DatabaseImpl implements Database {
             q1.setStatement("This is the " + j + " fake question for now");
 
             questions.add(q1);
-        }
+        }*/
         return questions;
     }
 }

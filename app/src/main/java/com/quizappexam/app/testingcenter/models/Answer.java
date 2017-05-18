@@ -13,9 +13,18 @@ public class Answer {
     @DatabaseField
     private boolean correct;
 
-
+    @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName = "questionid")
+    private Question question;
 
     public Answer() {
+    }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
     }
 
     public int getAnswerId() {

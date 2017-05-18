@@ -1,0 +1,48 @@
+#
+# generated on 2017/05/18 08:48:54
+#
+# --table-start--
+dataClass=com.quizappexam.app.testingcenter.models.Answer
+tableName=answer
+# --table-fields-start--
+# --field-start--
+fieldName=answerId
+id=true
+# --field-end--
+# --field-start--
+fieldName=statement
+# --field-end--
+# --field-start--
+fieldName=correct
+# --field-end--
+# --field-start--
+fieldName=question
+columnName=questionid
+foreign=true
+foreignAutoRefresh=true
+maxForeignAutoRefreshLevel=2
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.quizappexam.app.testingcenter.models.Question
+tableName=question
+# --table-fields-start--
+# --field-start--
+fieldName=questionId
+id=true
+# --field-end--
+# --field-start--
+fieldName=mAnswers
+# --field-end--
+# --field-start--
+fieldName=statement
+# --field-end--
+# --field-start--
+fieldName=mAnswerCollection
+foreignCollection=true
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
