@@ -7,7 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 import com.quizappexam.app.testingcenter.R;
 import com.quizappexam.app.testingcenter.domain.QuizUseCaseImpl;
+import com.quizappexam.app.testingcenter.models.Answer;
 import com.quizappexam.app.testingcenter.models.Question;
+
+import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,7 +44,8 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
         this.mQuestionList = questionList;
         answerRecyclerView.setLayoutManager(new LinearLayoutManager(QuizActivity.this));
         questionStatement.setText(mQuestionList.get(0).getStatement());
-        answerAdapter = new AnswerAdapter(mQuestionList.get(0).getAnswers());
+        List<Answer> answers = new ArrayList<>(mQuestionList.get(0).getAnswerCollection());
+        answerAdapter = new AnswerAdapter(answers);
         answerRecyclerView.setAdapter(answerAdapter);
 
     }
@@ -54,7 +58,7 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
     @Override
     public void displayNextQuestion(Question question) {
         questionStatement.setText(question.getStatement());
-        answerAdapter.updateQuestion(question.getAnswers());
+        answerAdapter.updateQuestion(new ArrayList<>(question.getAnswerCollection()));
 
     }
 
