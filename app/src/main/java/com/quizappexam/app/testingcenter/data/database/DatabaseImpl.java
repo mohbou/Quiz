@@ -51,9 +51,8 @@ public class DatabaseImpl implements Database {
             mAnswerDao = getHelper().getAnswerRuntimeCollectionDao();
 
 
-
-      /* run 1 time just to fill up the database
-      for (int j = 0; j < 20; j++) {
+            //run 1 time just to fill up the database
+     /* for (int j = 0; j < 20; j++) {
            Log.d("jjj", String.valueOf(j));
             Question q1 = new Question();
             q1.setStatement("This is the " + j + " fake question for now");
@@ -68,6 +67,7 @@ public class DatabaseImpl implements Database {
             }
         }*/
           questions1 = mQuestionDao.queryForAll();
+
 
         } catch (SQLException e) {
             e.printStackTrace();

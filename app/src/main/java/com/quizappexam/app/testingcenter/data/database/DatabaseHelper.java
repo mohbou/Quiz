@@ -18,7 +18,7 @@ import java.sql.SQLException;
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 
-    private static final String DATABASE_NAME = "testCenter.db";
+    private static final String DATABASE_NAME = "testCenter2.db";
 
     private static final int DATABASE_VERSION = 1;
 
@@ -37,7 +37,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
         try {
             TableUtils.createTable(connectionSource, Question.class);
-            TableUtils.createTable(connectionSource, Answer.class);
+            TableUtils.createTableIfNotExists(connectionSource, Answer.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }

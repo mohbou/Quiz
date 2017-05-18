@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.dao.ForeignCollection;
 import com.quizappexam.app.testingcenter.R;
 import com.quizappexam.app.testingcenter.domain.QuizUseCaseImpl;
 import com.quizappexam.app.testingcenter.models.Answer;
@@ -46,7 +48,8 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
         this.mQuestionList = questionList;
         answerRecyclerView.setLayoutManager(new LinearLayoutManager(QuizActivity.this));
         questionStatement.setText(mQuestionList.get(0).getStatement());
-        List<Answer> answers = new ArrayList<>(mQuestionList.get(0).getAnswerCollection());
+        ForeignCollection<Answer> answerCollection = mQuestionList.get(0).getAnswerCollection();
+        List<Answer> answers = new ArrayList<>(answerCollection);
         answerAdapter = new AnswerAdapter(answers);
         answerRecyclerView.setAdapter(answerAdapter);
 
