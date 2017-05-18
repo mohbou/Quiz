@@ -15,32 +15,40 @@ import butterknife.ButterKnife;
 
 public class AnswerHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-private Answer answer;
-
-@BindView(R.id.checkBoxAnswerId)
-CheckBox checkBoxAnswer;
-
-@BindView(R.id.answerStatementId)
-TextView answerStatement;
+    private Answer answer;
 
 
-public AnswerHolder(LayoutInflater inflater, ViewGroup parent) {
+    @BindView(R.id.checkBoxAnswerId)
+    CheckBox checkBoxAnswer;
+
+    @BindView(R.id.answerStatementId)
+    TextView answerStatement;
+
+
+    public AnswerHolder(LayoutInflater inflater, ViewGroup parent) {
         super(inflater.inflate(R.layout.list_item_answer, parent, false));
         ButterKnife.bind(this, itemView);
         answerStatement.setOnClickListener(this);
+        checkBoxAnswer.setOnClickListener(this);
 
 
-        }
+    }
 
-public void bind(Answer answer) {
+    public void bind(Answer answer) {
         this.answer = answer;
         checkBoxAnswer.setChecked(false);
         answerStatement.setText(answer.getStatement());
 
-        }
+    }
 
-@Override
-public void onClick(View view) {
-        checkBoxAnswer.setChecked(!checkBoxAnswer.isChecked());
+    @Override
+    public void onClick(View view) {
+        if (view.equals(answerStatement)) {
+            checkBoxAnswer.setChecked(!checkBoxAnswer.isChecked());
         }
-        }
+    }
+
+    public Answer getAnswer() {
+        return answer;
+    }
+}

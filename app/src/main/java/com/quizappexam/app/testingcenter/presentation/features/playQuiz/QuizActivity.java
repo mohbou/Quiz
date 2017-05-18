@@ -70,6 +70,7 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
     @OnClick(R.id.nextQuestionBtn)
     public void onClickNextQuestion() {
         mQuizActivityPresenter.loadQuestion();
+
     }
 
 

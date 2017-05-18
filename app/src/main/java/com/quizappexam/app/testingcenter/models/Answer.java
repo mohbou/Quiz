@@ -18,7 +18,17 @@ public class Answer {
     @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName = "questionid")
     private Question question;
 
+    private boolean selected;
+
     public Answer() {
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 
     public Question getQuestion() {

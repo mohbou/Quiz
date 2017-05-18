@@ -1,8 +1,11 @@
 package com.quizappexam.app.testingcenter.presentation.features.playQuiz;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 
 import com.quizappexam.app.testingcenter.models.Answer;
 
@@ -23,9 +26,19 @@ public class  AnswerAdapter extends RecyclerView.Adapter<AnswerHolder> {
     }
 
     @Override
-    public void onBindViewHolder(AnswerHolder holder, int position) {
-        Answer answer = answers.get(position);
+    public void onBindViewHolder(final AnswerHolder holder, int position) {
+        final Answer answer = answers.get(position);
         holder.bind(answer);
+
+        holder.checkBoxAnswer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                answers.get(holder.getAdapterPosition()).setSelected(isChecked);
+
+            }
+        });
+
+
     }
 
     @Override
