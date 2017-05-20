@@ -55,8 +55,8 @@ public class TestActivityPresenterQuiz {
         private  boolean noQuestions;
 
         @Override
-        public void displayQuestion(List<Question> questionList) {
-            if (questionList.size()==3) passedQuestions =true;
+        public void displayQuestion(Question question) {
+            if (question!=null) passedQuestions =true;
         }
 
         @Override

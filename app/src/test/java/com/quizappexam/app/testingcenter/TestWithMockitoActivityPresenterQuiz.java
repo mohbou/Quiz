@@ -51,7 +51,7 @@ public class TestWithMockitoActivityPresenterQuiz {
         presenter.loadQuestions();
 
         // then
-        verify(view).displayQuestion(mQuestionList);
+        verify(view).displayQuestion(mQuestionList.get(0));
 
     }
 

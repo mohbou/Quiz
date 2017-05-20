@@ -23,7 +23,6 @@ import butterknife.OnClick;
 public class QuizActivity extends AppCompatActivity implements QuizActivityView {
 
     private QuizActivityPresenter mQuizActivityPresenter;
-    private List<Question> mQuestionList;
     private AnswerAdapter answerAdapter;
 
     @BindView(R.id.recyclerViewAnswersID)
@@ -37,6 +36,7 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         ButterKnife.bind(this);
+        answerRecyclerView.setLayoutManager(new LinearLayoutManager(QuizActivity.this));
 
         mQuizActivityPresenter = new QuizActivityPresenter(this, new QuizUseCaseImpl(getApplication()));
         mQuizActivityPresenter.loadQuestions();
@@ -44,12 +44,10 @@ public class QuizActivity extends AppCompatActivity implements QuizActivityView 
     }
 
     @Override
-    public void displayQuestion(List<Question> questionList) {
-        this.mQuestionList = questionList;
-        answerRecyclerView.setLayoutManager(new LinearLayoutManager(QuizActivity.this));
-        questionStatement.setText(mQuestionList.get(0).getStatement());
-        ForeignCollection<Answer> answerCollection = mQuestionList.get(0).getAnswerCollection();
-        List<Answer> answers = new ArrayList<>(answerCollection);
+    public void displayQuestion(Question question) {
+
+        questionStatement.setText(question.getStatement());
+        List<Answer> answers = new ArrayList<>(question.getAnswerCollection());
         answerAdapter = new AnswerAdapter(answers);
         answerRecyclerView.setAdapter(answerAdapter);
 

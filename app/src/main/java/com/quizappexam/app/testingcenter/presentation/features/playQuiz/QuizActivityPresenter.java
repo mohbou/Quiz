@@ -11,10 +11,6 @@ public class QuizActivityPresenter {
     private QuizUseCase mQuizUseCase;
     private List<Question> mQuestions;
 
-    public int getCurrentQuestionIndex() {
-        return currentQuestionIndex;
-    }
-
     private int currentQuestionIndex;
 
     public QuizActivityPresenter(QuizActivityView view, QuizUseCase quizUseCase) {
@@ -26,13 +22,17 @@ public class QuizActivityPresenter {
         mQuestions = mQuizUseCase.getQuestions();
 
         if (!mQuestions.isEmpty())
-            mView.displayQuestion(mQuestions);
+            mView.displayQuestion(mQuestions.get(0));
         else
             mView.displayNoQuestions();
     }
 
     public void loadQuestion() {
         Question question = mQuizUseCase.getQuestion(++currentQuestionIndex);
-        mView.displayNextQuestion(question);
+        mView.displayQuestion(question);
+    }
+
+    public int getCurrentQuestionIndex() {
+        return currentQuestionIndex;
     }
 }
